@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'; 
 import { Container, Button } from 'react-bootstrap'; 
 import { motion } from 'framer-motion'; 
-import { FaHtml5, FaCss3, FaJs, FaBootstrap,FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope,FaFilePdf } from 'react-icons/fa';
+import { FaHtml5, FaCss3, FaJs, FaBootstrap,FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope,FaFilePdf,
+FaCode, FaReact, FaMobileAlt, FaCube, FaBrain, FaLanguage  } from 'react-icons/fa';
+import { IconContext } from 'react-icons';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -188,37 +190,54 @@ const AboutSection = () => {
 };
 const skills = [
   {
-    title: "JavaScript",
+    
+    title: "JavaScript,",
     level: 80,
+    icon: FaCode,
+    iconColor: '#FF5733',
   },
   {
     title: "ReactJS / React Native",
     level: 90,
+    icon: FaReact,
+    iconColor: '#14E7D0',
   },
   {
     title: "HTML, CSS",
     level: 80,
+    icon: FaHtml5 ,
+    iconColor: '#C70039',
   },
   {
     title: "Flutter",
     level: 60,
+    icon: FaMobileAlt,
+    iconColor: '#155CA4',
   },
   {
     title: "3D Modeling",
     level: 40,
+    icon: FaCube,
+    iconColor: '#581845',
   },{
     title: "Problem Solving",
     level: 75,
+    icon: FaBrain,
+    iconColor: '#1F231F',
+
   },
   {
     title: "Work Under Presure ,Motivator",
     level: 95,
+    icon: FaBrain,
+    iconColor: '#1F231F',
   },
 ];
 const languages = [
   {
     title: "🇪🇬 Arabic",
     level: 100,
+    
   },
   {
     title: "🇬🇧 English",
@@ -234,7 +253,7 @@ const SkillsSection = () => {
         <h2 className="text-3xl font-bold mb-2 text-gray-300">Skills</h2>
         <ul className="list-group list-group-flush ">
           {skills.map((skill, index) => (
-          <li className="list-group-item border-0 " style={{ backgroundColor: '#FF5733' }} key={index}>
+          <li className="list-group-item border-0 " style={{ backgroundColor: '#1B807E' }} key={index}>
               <motion.h3 
               initial={{
                 opacity:0,
@@ -249,12 +268,16 @@ const SkillsSection = () => {
                 }
               }}
               
-               className="text-lg font-bold mb-1">{skill.title}</motion.h3>
+               className="text-lg font-bold mb-1">  
+               <IconContext.Provider value={{ color: skill.iconColor }}> 
+                  <span className="me-2"><skill.icon /></span>
+                </IconContext.Provider>
+               {skill.title}</motion.h3>
               <div className={`progress bg-light mt-2`} style={{ height: '10px' }}>
                 <motion.div
                   className="progress-bar"
                   role="progressbar"
-                  style={{ width: `${skill.level}%`, height: '100%' ,backgroundColor: '#74FF33' }}
+                  style={{ width: `${skill.level}%`, height: '100%' ,backgroundColor: '#0CC10A' }}
                   aria-valuenow={skill.level}
                   aria-valuemin="0"
                   aria-valuemax="100"
@@ -281,13 +304,13 @@ const SkillsSection = () => {
           <h2 className="text-3xl font-bold mt-4 mb-2 text-gray-300" >Languages</h2>
           <ul className="list-group list-group-flush">
             {languages.map((lng, index) => (
-              <li className="list-group-item border-0" style={{ backgroundColor: '#0E6D45' }} key={index}>
+              <li className="list-group-item border-0" style={{ backgroundColor: '#35DAD7' }} key={index}>
                 <h3 className="text-lg font-bold mb-1">{lng.title}</h3>
                 <div className={`progress bg-light mt-2 `} style={{ height: '10px' }}>
                   <motion.div
                     className="progress-bar"
                     role="progressbar"
-                    style={{ width: `${lng.level}%`, height: '100%', backgroundColor: '#74FF33' }}
+                    style={{ width: `${lng.level}%`, height: '100%', backgroundColor: '#0CC10A' }}
                     aria-valuenow={lng.level}
                     aria-valuemin="0"
                     aria-valuemax="100"
@@ -320,7 +343,7 @@ const ContactSection = () => {
     <Section>
       <h2 className="text-5xl font-bold text-center mb-4 text-gray-300">Contact me</h2>
       
-      <div className="mt-8 mx-auto px-12 py-8 rounded-md bg-info" style={{ width: '50%' }}> {/* Increased width */}
+      <div className="mt-8 mx-auto px-4 sm:px-6 lg:px-8 py-8 rounded-md bg-info max-w-2xl w-full">
         <form>
           <div className="mb-4">
             <label htmlFor="name" className="form-label font-semibold text-gray-900">
