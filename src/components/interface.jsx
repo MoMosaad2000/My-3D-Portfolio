@@ -57,7 +57,7 @@ const ProjectTile = ({ project }) => {
     >
       <h3 className='font-bold '>{title}</h3>
       <p className='font-semibold '>{description}</p>
-      <img style={{ width: '1100px', maxHeight: '450px', objectFit: 'cover' }} src={imageUrl} alt={title} />
+      <img style={{ width: '1100px', maxHeight: '480px', objectFit: 'cover' }} src={imageUrl} alt={title} />
       <div className="d-flex align-items-center space-x-6 bg-dark p-2">
       <IconButton href= {gitHubLink} style={{ color: '#181717' }}>
               <FaGithub />
