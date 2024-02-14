@@ -112,7 +112,7 @@ const ProjectsSection = () => {
 
   return (
     <Section>
-      <h1 className="text-3xl font-bold mb-2 text-gray-300">Projects</h1>
+      <h1 className="text-3xl font-bold mt-6 mb-2 text-gray-300">Projects</h1>
       <div className="d-flex flex-wrap justify-content-center mb-2">
         <ProjectTile project={projects[currentProjectIndex]} />
       </div>
@@ -254,7 +254,7 @@ const SkillsSection = () => {
         <ul className="list-group list-group-flush ">
           {skills.map((skill, index) => (
           <li className="list-group-item border-0 " style={{ backgroundColor: '#1B807E' }} key={index}>
-              <motion.h3 
+              <motion.div  // Wrap the content to allow animation
               initial={{
                 opacity:0,
               }}
@@ -266,14 +266,17 @@ const SkillsSection = () => {
                     delay:1+index*0.2,
                   }
                 }
-              }}
+              }} >
               
-               className="text-lg font-bold mb-1">  
-               <IconContext.Provider value={{ color: skill.iconColor }}> 
-                  <span className="me-2"><skill.icon /></span>
-                </IconContext.Provider>
-               {skill.title}</motion.h3>
-              <div className={`progress bg-light mt-2`} style={{ height: '10px' }}>
+               <div className="d-flex justify-content-between align-items-center" > 
+                <div className="d-flex align-items-center">
+                  <IconContext.Provider value={{ color: skill.iconColor }}> 
+                      <span className="me-2"><skill.icon /></span>
+                    </IconContext.Provider>
+                    <h3 className="text-lg font-bold mb-1">{skill.title}</h3>
+                  </div>
+               
+                  <div className="progress bg-light mt-2" style={{ height: '10px', width: '150px' }}> 
                 <motion.div
                   className="progress-bar"
                   role="progressbar"
@@ -296,12 +299,14 @@ const SkillsSection = () => {
                   }}
                 ></motion.div>
               </div>
+            </div>   
+            </motion.div>
             </li>
           ))}
         </ul>
         <div className="mt-8"></div> {/* Vertical spacing */}
         <div>
-          <h2 className="text-3xl font-bold mt-4 mb-2 text-gray-300" >Languages</h2>
+          <h2 className="text-3xl font-bold mt-2 mb-2 text-gray-300" >Languages</h2>
           <ul className="list-group list-group-flush">
             {languages.map((lng, index) => (
               <li className="list-group-item border-0" style={{ backgroundColor: '#35DAD7' }} key={index}>
