@@ -89,7 +89,7 @@ const ProjectsSection = () => {
       title: "Portfolio 3D:",
       description: "A 3D portfolio website showcasing your projects.",
       imageUrl: ('./images/Capture.PNG'),
-      gitHubLink: "https://github.com/yourusername/portfolio-3d"
+      gitHubLink: "https://github.com/MoMosaad2000/My-3D-Portfolio"
     },
     {
       title: "Egg Basket and Shooting Bird Game: ",
