@@ -57,7 +57,7 @@ const ProjectTile = ({ project }) => {
     >
       <h3 className='font-bold '>{title}</h3>
       <p className='font-semibold '>{description}</p>
-      <img style={{ width: '1100px', maxHeight: '480px', objectFit: 'cover' }} src={imageUrl} alt={title} />
+      <img style={{ width: '1100px', maxHeight: '450px', objectFit: 'cover' }} src={imageUrl} alt={title} />
       <div className="d-flex align-items-center space-x-6 bg-dark p-2">
       <IconButton href= {gitHubLink} style={{ color: '#181717' }}>
               <FaGithub />
@@ -112,7 +112,7 @@ const ProjectsSection = () => {
 
   return (
     <Section>
-      <h1 className="text-3xl font-bold mt-6 mb-2 text-gray-300">Projects</h1>
+      <h1 className="text-3xl font-bold mb-2 text-gray-300">Projects</h1>
       <div className="d-flex flex-wrap justify-content-center mb-2">
         <ProjectTile project={projects[currentProjectIndex]} />
       </div>
@@ -253,54 +253,53 @@ const SkillsSection = () => {
         <h2 className="text-3xl font-bold mb-2 text-gray-300">Skills</h2>
         <ul className="list-group list-group-flush ">
           {skills.map((skill, index) => (
-          <li className="list-group-item border-0 " style={{ backgroundColor: '#1B807E' }} key={index}>
-              <motion.div  // Wrap the content to allow animation
-              initial={{
-                opacity:0,
-              }}
-              variants={{
-                visible:{
-                  opacity:1,
-                  transition:{
-                    duration:1,
-                    delay:1+index*0.2,
+            <li className="list-group-item border-0 " style={{ backgroundColor: '#1B807E' }} key={index}>
+              <motion.div // Wrap the content to allow animation
+                initial={{
+                  opacity: 0,
+                }}
+                variants={{
+                  visible: {
+                    opacity: 1,
+                    transition: {
+                      duration: 1,
+                      delay: 1 + index * 0.2,
+                    }
                   }
-                }
-              }} >
-              
-               <div className="d-flex justify-content-between align-items-center" > 
-                <div className="d-flex align-items-center">
-                  <IconContext.Provider value={{ color: skill.iconColor }}> 
+                }}
+              >
+                <div className="d-flex justify-content-between align-items-center">
+                  <div className="d-flex align-items-center">
+                    <IconContext.Provider value={{ color: skill.iconColor }}>
                       <span className="me-2"><skill.icon /></span>
                     </IconContext.Provider>
                     <h3 className="text-lg font-bold mb-1">{skill.title}</h3>
                   </div>
-               
-                  <div className="progress bg-light mt-2" style={{ height: '10px', width: '150px' }}> 
-                <motion.div
-                  className="progress-bar"
-                  role="progressbar"
-                  style={{ width: `${skill.level}%`, height: '100%' ,backgroundColor: '#0CC10A' }}
-                  aria-valuenow={skill.level}
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                   initial={{
-                    scaleX: 0,
-                    originX: 0,
-                  }}
-                  variants={{
-                    visible: {
-                      scaleX: 1,
-                      transition: {
-                        duration: 1,
-                        delay: 1 + index * 0.2,
-                      },
-                    },
-                  }}
-                ></motion.div>
-              </div>
-            </div>   
-            </motion.div>
+                  <div className="progress bg-light mt-2" style={{ height: '10px', width: '150px' }}> {/* Added width */}
+                    <motion.div
+                      className="progress-bar"
+                      role="progressbar"
+                      style={{ width: `${skill.level}%`, height: '100%', backgroundColor: '#0CC10A' }}
+                      aria-valuenow={skill.level}
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      initial={{
+                        scaleX: 0,
+                        originX: 0,
+                      }}
+                      variants={{
+                        visible: {
+                          scaleX: 1,
+                          transition: {
+                            duration: 1,
+                            delay: 1 + index * 0.2,
+                          },
+                        },
+                      }}
+                    ></motion.div>
+                  </div>
+                </div>
+              </motion.div>
             </li>
           ))}
         </ul>
@@ -310,29 +309,33 @@ const SkillsSection = () => {
           <ul className="list-group list-group-flush">
             {languages.map((lng, index) => (
               <li className="list-group-item border-0" style={{ backgroundColor: '#35DAD7' }} key={index}>
-                <h3 className="text-lg font-bold mb-1">{lng.title}</h3>
-                <div className={`progress bg-light mt-2 `} style={{ height: '10px' }}>
-                  <motion.div
-                    className="progress-bar"
-                    role="progressbar"
-                    style={{ width: `${lng.level}%`, height: '100%', backgroundColor: '#0CC10A' }}
-                    aria-valuenow={lng.level}
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                     initial={{
-                    scaleX: 0,
-                    originX: 0,
-                  }}
-                  variants={{
-                    visible: {
-                      scaleX: 1,
-                      transition: {
-                        duration: 1,
-                        delay: 2 + index * 0.2,
-                      },
-                    },
-                  }}
-                  ></motion.div>
+                <div className="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h3 className="text-lg font-bold mb-1">{lng.title}</h3>
+                  </div>
+                  <div className="progress bg-light mt-2" style={{ height: '10px', width: '150px' }}> {/* Added width */}
+                    <motion.div
+                      className="progress-bar"
+                      role="progressbar"
+                      style={{ width: `${lng.level}%`, height: '100%', backgroundColor: '#0CC10A' }}
+                      aria-valuenow={lng.level}
+                      aria-valuemin="0"
+                      aria-valuemax="100"
+                      initial={{
+                        scaleX: 0,
+                        originX: 0,
+                      }}
+                      variants={{
+                        visible: {
+                          scaleX: 1,
+                          transition: {
+                            duration: 1,
+                            delay: 2 + index * 0.2,
+                          },
+                        },
+                      }}
+                    ></motion.div>
+                  </div>
                 </div>
               </li>
             ))}
@@ -341,6 +344,7 @@ const SkillsSection = () => {
       </motion.div>
     </Section>
   );
+  
 };
 
 const ContactSection = () => {
