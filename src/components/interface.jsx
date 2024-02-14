@@ -367,7 +367,7 @@ const ContactSection = () => {
             <IconButton href="mailto:mohameedmosaad5@gmail.com" style={{ color: '#FF0000' }}>
               <FaEnvelope />
             </IconButton>
-            <IconButton href="https://api.whatsapp.com/send?phone=+021154086176" style={{ color: '#25D366' }}>
+            <IconButton href="https://api.whatsapp.com/send?phone=+201154086176" style={{ color: '#25D366' }}>
               <FaWhatsapp />
             </IconButton>
             <IconButton href="https://www.linkedin.com/in/mohameed-mosaad-gad-elhak/" style={{ color: '#0A66C2' }}>
