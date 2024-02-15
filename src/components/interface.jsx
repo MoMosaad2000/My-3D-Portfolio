@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Button } from 'react-bootstrap'; 
 import { motion } from 'framer-motion'; 
 import { FaHtml5, FaCss3, FaJs, FaBootstrap,FaGithub, FaLinkedin, FaWhatsapp, FaEnvelope,FaFilePdf,
-FaCode, FaReact, FaMobileAlt, FaCube, FaBrain, FaLanguage  } from 'react-icons/fa';
+FaCode, FaReact, FaMobileAlt, FaCube, FaBrain } from 'react-icons/fa';
 import { IconContext } from 'react-icons';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -63,10 +63,12 @@ const ProjectTile = ({ project }) => {
               <FaGithub />
             </IconButton>
         <div className="d-flex align-items-center">
+       
+        { title!=="Egg Basket and Shooting Bird Game: "&&<FaReact className="me-1" color="#008FFF" />}
           <FaHtml5 className="me-1" color="#E34F26" />
           <FaCss3 className="me-1" color="#2965f1" />
           <FaJs className="me-1" color="#F0DB4F" />
-          <FaBootstrap className="me-1" color="#563D7C" />
+        { title!=="Egg Basket and Shooting Bird Game: "&&<FaBootstrap className="me-1 h-2 w-2" color="#008FFF" />}        
         </div>
       </div>
     </motion.div>
@@ -141,7 +143,7 @@ export const Interface = () => {
 };
 
 const AboutSection = () => {
-  const newLocal = "	font-semibold mt-4 p-2  rounded-lg ";
+
   return (
     <Section>
       <h1 className="text-6xl font-weight-bold text-gray-300">Hi , I'm 
@@ -249,9 +251,9 @@ const SkillsSection = () => {
 
   return (
     <Section className={sectionColor}>
-      <motion.div whileInView={"visible"} >
+      <motion.div whileInView={"visible"}  >
         <h2 className="text-3xl font-bold mb-2 text-gray-300">Skills</h2>
-        <ul className="list-group list-group-flush ">
+        <ul className="list-group list-group-flush p-2 rounded-2xl  ">
           {skills.map((skill, index) => (
             <li className="list-group-item border-0 " style={{ backgroundColor: '#1B807E' }} key={index}>
               <motion.div // Wrap the content to allow animation
@@ -306,9 +308,9 @@ const SkillsSection = () => {
         <div className="mt-8"></div> {/* Vertical spacing */}
         <div>
           <h2 className="text-3xl font-bold mt-2 mb-2 text-gray-300" >Languages</h2>
-          <ul className="list-group list-group-flush">
+          <ul className="list-group list-group-flush p-2 rounded-2xl">
             {languages.map((lng, index) => (
-              <li className="list-group-item border-0" style={{ backgroundColor: '#35DAD7' }} key={index}>
+              <li className="list-group-item border-0" style={{ backgroundColor: '#1E669C' }} key={index}>
                 <div className="d-flex justify-content-between align-items-center">
                   <div>
                     <h3 className="text-lg font-bold mb-1">{lng.title}</h3>
